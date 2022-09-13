@@ -1,0 +1,29 @@
+.sideBar{
+    text-align: center;
+     width: 20%;
+      background-color: blanchedalmond; 
+      height: 100vh; 
+      padding: 10px; 
+      margin-right: 10px;
+}
+.pageContainer{
+    top: 0;
+    left: 0;
+    background-image: url('./siteBackground.jpg') ;
+    background-size: cover; 
+    background-position: center
+}
+
+.logo{
+    max-width: 75%; 
+    max-height: 75%; 
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.dataContainer{
+    background-color:bisque;
+    margin: 110px;
+    padding: 25px; 
+    border-radius: 25px;
+}

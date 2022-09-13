@@ -2,8 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express() 
 const methodOverride = require('method-override')
-const Article = require('./models/article')
-const articleRouter = require('./routes/articles')
+const nutritionLog = require('./models/nutritionLog')
+const nutritionRouter = require('./routes/nutritionRoutes')
 
 
 mongoose.connect('mongodb+srv://jesselicloud:test1234@cluster0.nrywhhn.mongodb.net/test')
@@ -20,17 +20,16 @@ mongoose.connect('mongodb+srv://jesselicloud:test1234@cluster0.nrywhhn.mongodb.n
 app.set('view engine', 'ejs')
 
 //We are importing the new routes into this server.js file. We can then link up those routers to this page using the
-//following app.use function. We set the new url path, then call the articleRouter file  
+//following app.use function. We set the new url path, then call the nutritionRouter file  
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({ extended: false}))
-
+app.use(express.urlencoded({ extended: false }))
+app.use( express.static( "static" ) )
 
 app.get('/', async (req, res) => { 
-    const articles = await Article.find().sort({ createdAt: 'desc' })
-    res.render('articles/index', { articles: articles })
+    const nutritionData = await nutritionLog.find().sort({ createdAt: 'desc' })
+    res.render('pages/index', { nutritionData: nutritionData })
 })
 
 
-app.use('/articles', articleRouter)
-app.listen(5000)
-
+app.use('/pages', nutritionRouter)
+app.listen(5000) 
