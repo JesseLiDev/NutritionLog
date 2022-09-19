@@ -6,19 +6,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/app.css">
-  <title>Blog</title>
+  <title>Nutrition Blog</title>
 </head>
-<body>
+<body onload="getDate()">
   
   <div class="row m-0 pageContainer" >
   <%- include('header') %> 
   <div class="container col-lg dataContainer">
-    <h1 class="mb-4">New Article</h1>
+    <h1 class="mb-4">Edit Nutrition Log</h1>
 
     <form action="/pages/<%= nutritionData.id %>?_method=PUT" method="POST">
         <%- include('form_fields') %>
       </form>
   </div>
 </div>
+
+<script>
+  function getDate() {
+    let journalDate= '<%= nutritionData.date%>' 
+    let convertedJournalDate = new Date(journalDate).toLocaleDateString('fr-CA',{
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+
+    }) 
+    document.getElementById("date").defaultValue = convertedJournalDate  
+  } 
+</script>
+
 </body>
 </html>

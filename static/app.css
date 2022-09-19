@@ -1,10 +1,17 @@
 .sideBar{
     text-align: center;
      width: 20%;
-      background-color: blanchedalmond; 
-      height: 100vh; 
-      padding: 10px; 
-      margin-right: 10px;
+     background-color: blanchedalmond; 
+     min-height: 100vh; 
+     padding: 10px; 
+     margin-right: 10px; 
+      
+}
+
+.indexCard{
+    background-color:bisque;
+    padding-left: 50px;
+    
 }
 .pageContainer{
     top: 0;
@@ -17,13 +24,19 @@
 .logo{
     max-width: 75%; 
     max-height: 75%; 
-    border-radius: 25px;
+    border-radius: 35px;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .dataContainer{
     background-color:bisque;
-    margin: 110px;
-    padding: 25px; 
-    border-radius: 25px;
+    margin: 130px;
+    padding: 30px; 
+    border-radius: 25px; 
+}
+
+.nutritionNotes{
+    height: 100px;
+    padding-top: 10px;   
 }

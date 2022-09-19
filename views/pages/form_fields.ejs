@@ -1,18 +1,40 @@
-<div class="form-group">
-    <label for="title">Title</label>
-    <input required  value="<%= nutritionData.title%>" type="text" name="title" id="title" class="form-control"> 
-</div>
+<div class="row">
 
-<div class="form-group">
-    <label for="description">Description</label>
-    <textarea name="description"  id="description" class="form-control" ><%= nutritionData.description%></textarea> 
-</div>
+ 
+    <div class="col">
+        <label for="date">Date</label>
+        <input required type='date' type="text" name="date" id="date" class="form-control" > 
+    </div> 
+</div> <br>
 
-<div class="form-group">
-    <label for="markdown">Markdown</label>
-    <textarea required name="markdown" id="markdown" class="form-control" ><%= nutritionData.markdown%></textarea> 
-</div>
-</br>
+<div class="row">
+    <div class="col">
 
+        <label for="calories">Calories</label>
+        <input required size="10" type='number' name="calories" id="calories" class="form-control" value="<%= nutritionData.calories%>" ></input> 
+    </div>
+
+    <div class="col">
+        <label for="protein">Protein (g)</label>
+        <input required size="10"   type='number'name="protein" id="protein" class="form-control" value="<%= nutritionData.protein %>"></input> 
+    </div>
+
+    <div class="col">
+        <label for="carbohydrates">Carbohydrates (g)</label>
+        <input required size="10"  type='number' name="carbohydrates" id="carbohydrates" class="form-control" value="<%= nutritionData.carbohydrates %>"></input> 
+    </div>
+
+
+    <div class="col">
+        <label for="fats">Fats (g)</label>
+        <input required size="10"  type='number' name="fats"  id="fats" class="form-control" value="<%= nutritionData.fats %>" ></input> 
+    </div>
+</div><br>
+
+<div class="col">
+    <label for="notes">Nutrition Notes </label>
+    <textarea required   type='text' name="notes"  id="notes" class="form-control nutritionNotes" ><%= nutritionData.notes %></textarea> 
+</div> <br>
+ 
 <button type="submit" class="btn btn-primary"> Save </button>
 <a href="/" class="btn btn-secondary">Cancel</a>

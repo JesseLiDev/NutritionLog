@@ -11,12 +11,12 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/edit/:id', async (req, res) => {
-  const nutritionData = await nutritionLog.findById(req.params.id)
+  const nutritionData = await nutritionLog.findById(req.params.id) 
   res.render('pages/edit', { nutritionData: nutritionData })
 })
 
-router.get('/:slug', async (req, res) => {
-  const nutritionData = await nutritionLog.findOne({ slug: req.params.slug })
+router.get('/:id', async (req, res) => {
+  const nutritionData = await nutritionLog.findById(req.params.id) 
   if (nutritionData == null) res.redirect('/')
   res.render('pages/show', { nutritionData: nutritionData })
 })
@@ -38,15 +38,20 @@ router.delete('/:id', async (req, res) => {
 
 function saveNutritionDataAndRedirect(path) {
   return async (req, res) => {
-    let nutritionData = req.nutritionData 
-    nutritionData.title = req.body.title
-    nutritionData.description = req.body.description
-    nutritionData.markdown = req.body.markdown
+    let nutritionData = req.nutritionData  
+    nutritionData.calories = req.body.calories
+    nutritionData.protein = req.body.protein
+    nutritionData.carbohydrates = req.body.carbohydrates
+    nutritionData.fats = req.body.fats
+    nutritionData.date = req.body.date
+    nutritionData.notes = req.body.notes
+    console.log('body'  , req.body)
     try {
       nutritionData = await nutritionData.save()
-      res.redirect(`/pages/${nutritionData.slug}`)
+      res.render('pages/show', { nutritionData: nutritionData })
     } catch (e) { 
       res.render(`pages/${path}`, { nutritionData: nutritionData })
+      console.log('Data was NOT Saved')
     }
   }
 }

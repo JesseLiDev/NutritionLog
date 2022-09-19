@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use( express.static( "static" ) )
 
 app.get('/', async (req, res) => { 
-    const nutritionData = await nutritionLog.find().sort({ createdAt: 'desc' })
+    const nutritionData = await nutritionLog.find().sort({ date: 'desc' })     
     res.render('pages/index', { nutritionData: nutritionData })
 })
 
