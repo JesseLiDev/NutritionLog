@@ -32,4 +32,6 @@ app.get('/', async (req, res) => {
 
 
 app.use('/pages', nutritionRouter)
-app.listen(5000) 
+// app.listen(5000) 
+
+console.log('End')
