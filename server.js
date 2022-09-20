@@ -4,7 +4,7 @@ const app = express()
 const methodOverride = require('method-override')
 const nutritionLog = require('./models/nutritionLog')
 const nutritionRouter = require('./routes/nutritionRoutes')
-
+const port = process.env.PORT || 5000
 
 mongoose.connect('mongodb+srv://jesselicloud:test1234@cluster0.nrywhhn.mongodb.net/test')
     .then(() => {
@@ -32,6 +32,6 @@ app.get('/', async (req, res) => {
 
 
 app.use('/pages', nutritionRouter)
-app.listen(5000) 
+app.listen(port) 
 
 console.log('End')
