@@ -17,18 +17,23 @@
         <%- include('header') %> 
  
     <div class=" col-md">
-
+         
         <% nutritionData.forEach(nutritionData => { %>
-        <div class ="card mt-4 m infinite">
+        <div class ="card mt-4 m infinite cardContainer">
+             
             <div class ="card-body indexCard">
-                <h4 class=""card-title"><%= nutritionData.date.toLocaleDateString() %></h4>
- 
-                <div class="card-text mb-2"><%= nutritionData.notes %></div>
+                
+                <h4 class="card-title"> Journal: <%= nutritionData.date.toLocaleDateString() %></h4>
+                
+                <div class="card-text mb-2" > <%= nutritionData.notes %></div>
+                 
+                 
                 <a href="pages/<%= nutritionData.id %>" class = "btn btn-primary"> Read More</a>
                 
                 <form action="/pages/<%= nutritionData.id %>?_method=DELETE" method="POST" class="d-inline">
                     <button type="submit" class="btn btn-danger">Delete</button>
                   </form>
+                
             </div>
         </div> 
      <% }) %>

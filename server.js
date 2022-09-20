@@ -33,5 +33,4 @@ app.get('/', async (req, res) => {
 
 app.use('/pages', nutritionRouter)
 app.listen(port) 
-
-console.log('End')
+ 
